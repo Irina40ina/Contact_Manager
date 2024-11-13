@@ -40,31 +40,31 @@ const emits = defineEmits<{
 </template>
 
 <style scoped>
-    .contact-card {
-        min-width: 300px;
-        max-width: max-content;
-        padding: 1rem;
-        border-radius: 8px;
-        background-color: #ffffff;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-family: Arial, sans-serif;
-        color: #333;
-        transition: transform 0.3s ease;
+.contact-card {
+  min-width: 300px;
+  max-width: max-content;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--list-bc);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  color: var(--bacic-color-fg);
+  transition: transform 0.3s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .contact-card__name {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #333;
+  color: var(--bacic-color-fg);
 }
 
 .contact-card__phone,
@@ -72,7 +72,7 @@ const emits = defineEmits<{
 .contact-card__email {
   font-size: 0.9rem;
   margin: 4px 0;
-  color: #555;
+  color: var(--second-color-fg);
 }
 .contact-card__actions {
   width: 100%;

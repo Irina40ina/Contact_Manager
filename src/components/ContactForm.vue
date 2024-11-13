@@ -41,16 +41,7 @@ watch(() => props.contact, (newContact) => {
   }
 },
 { immediate: true });
-// watch(formData, (newValue) => {
-//   console.log('[Watch -> formData]', newValue);
-//   try {
-//     isNameValid.value = isValidName(formData.value.name);
-//     isPhoneValid.value = isValidPhone(formData.value.phone);
-//     isEmailValid.value = isValidEmail(formData.value.email);
-//   } catch (err) {
-//     console.error(`ContactForm=>watch=>formData ${err}`)
-//   }
-// }, {deep: true});
+
 // ################################## COMPUTE ###########################################
 const isFormValid = computed(() => isNameValid.value && isPhoneValid.value && isEmailValid.value);
 // ################################## METHODS ###########################################
@@ -88,20 +79,20 @@ function resetForm() {
 
 function updateInputName(event: Event) {
   const target = event.target as HTMLInputElement; 
-  // isNameValid.value = isValidName(target.value);
+  isNameValid.value = isValidName(target.value);
   formData.value.name = target.value;
 }
 
 function updateInputEmail(event: Event) {
   const target = event.target as HTMLInputElement; 
+  isEmailValid.value = isValidEmail(target.value);
   formData.value.email = target.value;
-  console.log(formData.value);
 }
 
 function updateInputPhone(event: Event) {
   const target = event.target as HTMLInputElement; 
+  isPhoneValid.value = isValidPhone(target.value);
   formData.value.phone = target.value;
-  console.log(formData.value);
 }
 </script>
 
@@ -114,17 +105,17 @@ function updateInputPhone(event: Event) {
       <label class="form-label">
         Имя:
         <input @input="updateInputName" :value="formData.name" class="form-input" required />
-        <span class="error">Имя должно содержать минимум 2 символа</span>
+        <span v-show="!isNameValid" class="error">Имя должно содержать минимум 2 символа</span>
       </label>
       <label class="form-label">
         Телефон:
-        <input @input="updateInputPhone" v-imask="{ mask: '+{7} (000) 000-00-00' }" class="form-input" required />
-        <span v-show="!isEmailValid" class="error">Некорректный номер телефона</span>
+        <input @input="updateInputPhone" :value="formData.phone" v-imask="{ mask: '+{7} (000) 000-00-00' }" class="form-input" required />
+        <span v-show="!isPhoneValid" class="error">Некорректный номер телефона</span>
       </label>
       <label class="form-label">
         e-mail:
-        <input @input="updateInputEmail" class="form-input" required />
-        <span v-show="!isPhoneValid" class="error">Некорректный e-mail</span>
+        <input @input="updateInputEmail" :value="formData.email"  class="form-input" required />
+        <span v-show="!isEmailValid" class="error">Некорректный e-mail</span>
       </label>
       <button type="submit" class="submit-button" :disabled="!isFormValid">
         {{ isEditMode ? 'Сохранить' : 'Добавить' }}
@@ -135,24 +126,24 @@ function updateInputPhone(event: Event) {
   
 <style scoped>
   .contact-form-container {
-  max-width: 400px;
+  min-width: 300px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  box-shadow: var(--card-shadow);
+  background-color: var(--list-bc);
 }
 
 .contact-form-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--bacic-color-fg);
 }
 
 .form-label {
   display: block;
   margin-bottom: 10px;
-  color: #555;
+  color: var(--second-color-fg);
   font-weight: bold;
 }
 
@@ -165,13 +156,13 @@ function updateInputPhone(event: Event) {
   font-size: 1rem;
 }
 .error {
-  color: red;
+  color: var(--error-color);
 }
 .submit-button {
   width: 100%;
   padding: 10px;
   margin-top: 20px;
-  background-color: #4CAF50;
+  background-color: var(--btn-bg);
   color: white;
   border: none;
   border-radius: 4px;
@@ -181,6 +172,6 @@ function updateInputPhone(event: Event) {
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: var(--btn-bg-hover);
 }
 </style>

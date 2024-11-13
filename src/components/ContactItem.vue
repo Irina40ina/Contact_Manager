@@ -23,21 +23,21 @@ const emits = defineEmits<{
   </template>
   
 <style scoped>
-    .contact-item {
-        list-style: none;
-        margin: .5rem 0;
-        cursor: pointer;
-    }
+.contact-item {
+    list-style: none;
+    margin: .5rem 0;
+    cursor: pointer;
+}
 
-    .contact-info {
-        background-color: var(--list-bc); 
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: var(--block-shadow); 
-        transition: background-color 0.3s ease;
-    }
+.contact-info {
+    background-color: var(--list-bc); 
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--block-shadow); 
+    transition: background-color 0.3s ease;
+}
 
-    .contact-info:hover {
-        background-color: var(--list-bc-hover);
-    }
+.contact-info:hover {
+    background-color: var(--list-bc-hover);
+}
 </style>

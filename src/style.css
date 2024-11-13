@@ -1,12 +1,18 @@
 
-
 :root {
 --bacic-color-fg: #333;
 --bright-color-fg: #3498db;
---text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+--btn-bg: #3982b3;
+--btn-bg-hover: #49a3de;
+--add-block-hover:#49a3de; 
+--second-color-fg: #555;
 --list-bc: #f9f9f9;
 --list-bc-hover: #e9e9e9;
+--error-color: rgb(187, 24, 24);
+--text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 --block-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 --block-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+--card-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+--card-shadow-hover: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 

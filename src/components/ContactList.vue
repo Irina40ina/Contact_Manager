@@ -50,6 +50,10 @@ const emits = defineEmits<{
     .contacts-container::-webkit-scrollbar {
         display: none; 
     }
+    .contacts-title {
+      font-size: 1.5rem;
+      color: var(--bright-color-fg);
+    }
     .add-contact-container {
       display: flex;
       align-items: center;
@@ -62,7 +66,7 @@ const emits = defineEmits<{
       transition: background-color 0.3s ease;
     }
     .add-contact-container:hover {
-        background-color: var(--list-bc-hover);
+        background-color: var(--add-block-hover);
     }
     .contacts-list {
         list-style: none;
